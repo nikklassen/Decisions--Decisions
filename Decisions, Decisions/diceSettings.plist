@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>showTotal</key>
+	<true/>
+	<key>configs</key>
+	<dict>
+		<key>ABCD</key>
+		<dict>
+			<key>dice</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>numDice</key>
+			<integer>2</integer>
+		</dict>
+		<key>Custom</key>
+		<dict>
+			<key>numDice</key>
+			<integer>2</integer>
+			<key>numSides</key>
+			<integer>6</integer>
+		</dict>
+		<key>D20</key>
+		<dict>
+			<key>numDice</key>
+			<integer>1</integer>
+			<key>dice</key>
+			<array>
+				<integer>20</integer>
+			</array>
+		</dict>
+		<key>Double</key>
+		<dict>
+			<key>numDice</key>
+			<integer>2</integer>
+			<key>dice</key>
+			<array>
+				<integer>6</integer>
+				<integer>6</integer>
+			</array>
+		</dict>
+	</dict>
+	<key>lastConfig</key>
+	<string>Double</string>
+</dict>
+</plist>

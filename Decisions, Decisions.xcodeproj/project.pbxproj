@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240F7E611646F7BE00F2CDCA /* ConfigDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240F7E601646F7BE00F2CDCA /* ConfigDetailViewController.m */; };
+		245058C4163B16180073955B /* diceSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 245058C3163B16180073955B /* diceSettings.plist */; };
+		245058C6163B345E0073955B /* Die_sillouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 245058C5163B345E0073955B /* Die_sillouette.png */; };
+		24A0EC90163EF1C4008B0DD2 /* StepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0EC8F163EF1C4008B0DD2 /* StepperCell.m */; };
+		24BAB7551643401C002F7396 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BAB7541643401C002F7396 /* SwitchCell.m */; };
 		24C6E9B71639A31A00F36E88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C6E9B61639A31A00F36E88 /* UIKit.framework */; };
 		24C6E9B91639A31A00F36E88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C6E9B81639A31A00F36E88 /* Foundation.framework */; };
 		24C6E9BB1639A31A00F36E88 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C6E9BA1639A31A00F36E88 /* CoreGraphics.framework */; };
@@ -17,11 +22,10 @@
 		24C6E9CB1639A31A00F36E88 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9CA1639A31A00F36E88 /* Default@2x.png */; };
 		24C6E9CD1639A31A00F36E88 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9CC1639A31A00F36E88 /* Default-568h@2x.png */; };
 		24C6E9D01639A31A00F36E88 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9CE1639A31A00F36E88 /* MainStoryboard_iPhone.storyboard */; };
-		24C6E9D31639A31A00F36E88 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9D11639A31A00F36E88 /* MainStoryboard_iPad.storyboard */; };
-		24C6E9D61639A31A00F36E88 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6E9D51639A31A00F36E88 /* FirstViewController.m */; };
+		24C6E9D61639A31A00F36E88 /* DiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6E9D51639A31A00F36E88 /* DiceViewController.m */; };
 		24C6E9D81639A31A00F36E88 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9D71639A31A00F36E88 /* first.png */; };
 		24C6E9DA1639A31A00F36E88 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9D91639A31A00F36E88 /* first@2x.png */; };
-		24C6E9DD1639A31A00F36E88 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6E9DC1639A31A00F36E88 /* SecondViewController.m */; };
+		24C6E9DD1639A31A00F36E88 /* CoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6E9DC1639A31A00F36E88 /* CoinViewController.m */; };
 		24C6E9DF1639A31A00F36E88 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9DE1639A31A00F36E88 /* second.png */; };
 		24C6E9E11639A31A00F36E88 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9E01639A31A00F36E88 /* second@2x.png */; };
 		24C6E9E91639A31A00F36E88 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C6E9E81639A31A00F36E88 /* SenTestingKit.framework */; };
@@ -29,6 +33,21 @@
 		24C6E9EB1639A31A00F36E88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C6E9B81639A31A00F36E88 /* Foundation.framework */; };
 		24C6E9F31639A31A00F36E88 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24C6E9F11639A31A00F36E88 /* InfoPlist.strings */; };
 		24C6E9F61639A31A00F36E88 /* Decisions__DecisionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6E9F51639A31A00F36E88 /* Decisions__DecisionsTests.m */; };
+		24C6EA1E1639C46900F36E88 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6EA181639C46900F36E88 /* 1.png */; };
+		24C6EA1F1639C46900F36E88 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6EA191639C46900F36E88 /* 2.png */; };
+		24C6EA201639C46900F36E88 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6EA1A1639C46900F36E88 /* 3.png */; };
+		24C6EA211639C46900F36E88 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6EA1B1639C46900F36E88 /* 4.png */; };
+		24C6EA221639C46900F36E88 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6EA1C1639C46900F36E88 /* 5.png */; };
+		24C6EA231639C46900F36E88 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6EA1D1639C46900F36E88 /* 6.png */; };
+		24CDD49C16435C10006F77BC /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CDD49B16435C10006F77BC /* ConfigViewController.m */; };
+		24CDD4AE16447ED2006F77BC /* Default Die.png in Resources */ = {isa = PBXBuildFile; fileRef = 24CDD4AD16447ED2006F77BC /* Default Die.png */; };
+		24D7907916604C2E00FEF575 /* Heads.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907716604C2E00FEF575 /* Heads.png */; };
+		24D7907A16604C2E00FEF575 /* Tails.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907816604C2E00FEF575 /* Tails.png */; };
+		24D7907E1660595500FEF575 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D7907D1660595500FEF575 /* ListViewController.m */; };
+		24D790801660816900FEF575 /* List_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907F1660816900FEF575 /* List_icon.png */; };
+		24D790821660856000FEF575 /* Coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D790811660856000FEF575 /* Coin.png */; };
+		24E992401654B4900041CF9A /* lists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E9923F1654B4900041CF9A /* lists.plist */; };
+		24F6C666163DD28100FB19F1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C665163DD28100FB19F1 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +61,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240F7E5F1646F7BE00F2CDCA /* ConfigDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDetailViewController.h; sourceTree = "<group>"; };
+		240F7E601646F7BE00F2CDCA /* ConfigDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigDetailViewController.m; sourceTree = "<group>"; };
+		245058C3163B16180073955B /* diceSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = diceSettings.plist; sourceTree = "<group>"; };
+		245058C5163B345E0073955B /* Die_sillouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Die_sillouette.png; path = "Decisions, Decisions/Die_sillouette.png"; sourceTree = "<group>"; };
+		24A0EC8E163EF1C4008B0DD2 /* StepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperCell.h; sourceTree = "<group>"; };
+		24A0EC8F163EF1C4008B0DD2 /* StepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperCell.m; sourceTree = "<group>"; };
+		24BAB7531643401C002F7396 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
+		24BAB7541643401C002F7396 /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
 		24C6E9B21639A31A00F36E88 /* Decisions, Decisions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Decisions, Decisions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C6E9B61639A31A00F36E88 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		24C6E9B81639A31A00F36E88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,21 +83,38 @@
 		24C6E9CA1639A31A00F36E88 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		24C6E9CC1639A31A00F36E88 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		24C6E9CF1639A31A00F36E88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		24C6E9D21639A31A00F36E88 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		24C6E9D41639A31A00F36E88 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		24C6E9D51639A31A00F36E88 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		24C6E9D71639A31A00F36E88 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		24C6E9D91639A31A00F36E88 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		24C6E9DB1639A31A00F36E88 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		24C6E9DC1639A31A00F36E88 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		24C6E9DE1639A31A00F36E88 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		24C6E9E01639A31A00F36E88 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		24C6E9D41639A31A00F36E88 /* DiceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiceViewController.h; sourceTree = "<group>"; };
+		24C6E9D51639A31A00F36E88 /* DiceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiceViewController.m; sourceTree = "<group>"; };
+		24C6E9D71639A31A00F36E88 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = "Decisions, Decisions/first.png"; sourceTree = "<group>"; };
+		24C6E9D91639A31A00F36E88 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "Decisions, Decisions/first@2x.png"; sourceTree = "<group>"; };
+		24C6E9DC1639A31A00F36E88 /* CoinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoinViewController.m; sourceTree = "<group>"; };
+		24C6E9DE1639A31A00F36E88 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = "Decisions, Decisions/second.png"; sourceTree = "<group>"; };
+		24C6E9E01639A31A00F36E88 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "Decisions, Decisions/second@2x.png"; sourceTree = "<group>"; };
 		24C6E9E71639A31A00F36E88 /* Decisions, DecisionsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Decisions, DecisionsTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24C6E9E81639A31A00F36E88 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		24C6E9F01639A31A00F36E88 /* Decisions, DecisionsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Decisions, DecisionsTests-Info.plist"; sourceTree = "<group>"; };
 		24C6E9F21639A31A00F36E88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24C6E9F41639A31A00F36E88 /* Decisions__DecisionsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Decisions__DecisionsTests.h; sourceTree = "<group>"; };
 		24C6E9F51639A31A00F36E88 /* Decisions__DecisionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Decisions__DecisionsTests.m; sourceTree = "<group>"; };
+		24C6EA181639C46900F36E88 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = "Decisions, Decisions/1.png"; sourceTree = "<group>"; };
+		24C6EA191639C46900F36E88 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = "Decisions, Decisions/2.png"; sourceTree = "<group>"; };
+		24C6EA1A1639C46900F36E88 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = "Decisions, Decisions/3.png"; sourceTree = "<group>"; };
+		24C6EA1B1639C46900F36E88 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4.png; path = "Decisions, Decisions/4.png"; sourceTree = "<group>"; };
+		24C6EA1C1639C46900F36E88 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5.png; path = "Decisions, Decisions/5.png"; sourceTree = "<group>"; };
+		24C6EA1D1639C46900F36E88 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6.png; path = "Decisions, Decisions/6.png"; sourceTree = "<group>"; };
+		24CDD49A16435C10006F77BC /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
+		24CDD49B16435C10006F77BC /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
+		24CDD4A016445D23006F77BC /* CoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinViewController.h; sourceTree = "<group>"; };
+		24CDD4AD16447ED2006F77BC /* Default Die.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default Die.png"; path = "Decisions, Decisions/Default Die.png"; sourceTree = "<group>"; };
+		24D7907716604C2E00FEF575 /* Heads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Heads.png; path = "Decisions, Decisions/Heads.png"; sourceTree = "<group>"; };
+		24D7907816604C2E00FEF575 /* Tails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tails.png; path = "Decisions, Decisions/Tails.png"; sourceTree = "<group>"; };
+		24D7907C1660595500FEF575 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		24D7907D1660595500FEF575 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		24D7907F1660816900FEF575 /* List_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = List_icon.png; path = "Decisions, Decisions/List_icon.png"; sourceTree = "<group>"; };
+		24D790811660856000FEF575 /* Coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Coin.png; path = "Decisions, Decisions/Coin.png"; sourceTree = "<group>"; };
+		24E9923F1654B4900041CF9A /* lists.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lists.plist; sourceTree = "<group>"; };
+		24F6C664163DD28100FB19F1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
+		24F6C665163DD28100FB19F1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +144,8 @@
 		24C6E9A71639A31A00F36E88 = {
 			isa = PBXGroup;
 			children = (
+				24CDD49F16445C7A006F77BC /* Cells */,
+				24C6EA0B1639BDAE00F36E88 /* Resources */,
 				24C6E9BC1639A31A00F36E88 /* Decisions, Decisions */,
 				24C6E9EE1639A31A00F36E88 /* Decisions, DecisionsTests */,
 				24C6E9B51639A31A00F36E88 /* Frameworks */,
@@ -130,18 +176,21 @@
 		24C6E9BC1639A31A00F36E88 /* Decisions, Decisions */ = {
 			isa = PBXGroup;
 			children = (
+				24F6C664163DD28100FB19F1 /* SettingsViewController.h */,
+				24F6C665163DD28100FB19F1 /* SettingsViewController.m */,
 				24C6E9C51639A31A00F36E88 /* AppDelegate.h */,
 				24C6E9C61639A31A00F36E88 /* AppDelegate.m */,
 				24C6E9CE1639A31A00F36E88 /* MainStoryboard_iPhone.storyboard */,
-				24C6E9D11639A31A00F36E88 /* MainStoryboard_iPad.storyboard */,
-				24C6E9D41639A31A00F36E88 /* FirstViewController.h */,
-				24C6E9D51639A31A00F36E88 /* FirstViewController.m */,
-				24C6E9D71639A31A00F36E88 /* first.png */,
-				24C6E9D91639A31A00F36E88 /* first@2x.png */,
-				24C6E9DB1639A31A00F36E88 /* SecondViewController.h */,
-				24C6E9DC1639A31A00F36E88 /* SecondViewController.m */,
-				24C6E9DE1639A31A00F36E88 /* second.png */,
-				24C6E9E01639A31A00F36E88 /* second@2x.png */,
+				240F7E5F1646F7BE00F2CDCA /* ConfigDetailViewController.h */,
+				240F7E601646F7BE00F2CDCA /* ConfigDetailViewController.m */,
+				24CDD49A16435C10006F77BC /* ConfigViewController.h */,
+				24CDD49B16435C10006F77BC /* ConfigViewController.m */,
+				24C6E9D41639A31A00F36E88 /* DiceViewController.h */,
+				24C6E9D51639A31A00F36E88 /* DiceViewController.m */,
+				24CDD4A016445D23006F77BC /* CoinViewController.h */,
+				24C6E9DC1639A31A00F36E88 /* CoinViewController.m */,
+				24D7907C1660595500FEF575 /* ListViewController.h */,
+				24D7907D1660595500FEF575 /* ListViewController.m */,
 				24C6E9BD1639A31A00F36E88 /* Supporting Files */,
 			);
 			path = "Decisions, Decisions";
@@ -157,6 +206,8 @@
 				24C6E9C81639A31A00F36E88 /* Default.png */,
 				24C6E9CA1639A31A00F36E88 /* Default@2x.png */,
 				24C6E9CC1639A31A00F36E88 /* Default-568h@2x.png */,
+				245058C3163B16180073955B /* diceSettings.plist */,
+				24E9923F1654B4900041CF9A /* lists.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -178,6 +229,41 @@
 				24C6E9F11639A31A00F36E88 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		24C6EA0B1639BDAE00F36E88 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				24D790811660856000FEF575 /* Coin.png */,
+				24D7907F1660816900FEF575 /* List_icon.png */,
+				24D7907716604C2E00FEF575 /* Heads.png */,
+				24D7907816604C2E00FEF575 /* Tails.png */,
+				24CDD4AD16447ED2006F77BC /* Default Die.png */,
+				245058C5163B345E0073955B /* Die_sillouette.png */,
+				24C6EA181639C46900F36E88 /* 1.png */,
+				24C6EA191639C46900F36E88 /* 2.png */,
+				24C6EA1A1639C46900F36E88 /* 3.png */,
+				24C6EA1B1639C46900F36E88 /* 4.png */,
+				24C6EA1C1639C46900F36E88 /* 5.png */,
+				24C6EA1D1639C46900F36E88 /* 6.png */,
+				24C6E9D71639A31A00F36E88 /* first.png */,
+				24C6E9D91639A31A00F36E88 /* first@2x.png */,
+				24C6E9DE1639A31A00F36E88 /* second.png */,
+				24C6E9E01639A31A00F36E88 /* second@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		24CDD49F16445C7A006F77BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				24A0EC8E163EF1C4008B0DD2 /* StepperCell.h */,
+				24BAB7531643401C002F7396 /* SwitchCell.h */,
+				24BAB7541643401C002F7396 /* SwitchCell.m */,
+				24A0EC8F163EF1C4008B0DD2 /* StepperCell.m */,
+			);
+			name = Cells;
+			path = "Decisions, Decisions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,11 +342,24 @@
 				24C6E9CB1639A31A00F36E88 /* Default@2x.png in Resources */,
 				24C6E9CD1639A31A00F36E88 /* Default-568h@2x.png in Resources */,
 				24C6E9D01639A31A00F36E88 /* MainStoryboard_iPhone.storyboard in Resources */,
-				24C6E9D31639A31A00F36E88 /* MainStoryboard_iPad.storyboard in Resources */,
 				24C6E9D81639A31A00F36E88 /* first.png in Resources */,
 				24C6E9DA1639A31A00F36E88 /* first@2x.png in Resources */,
 				24C6E9DF1639A31A00F36E88 /* second.png in Resources */,
 				24C6E9E11639A31A00F36E88 /* second@2x.png in Resources */,
+				24C6EA1E1639C46900F36E88 /* 1.png in Resources */,
+				24C6EA1F1639C46900F36E88 /* 2.png in Resources */,
+				24C6EA201639C46900F36E88 /* 3.png in Resources */,
+				24C6EA211639C46900F36E88 /* 4.png in Resources */,
+				24C6EA221639C46900F36E88 /* 5.png in Resources */,
+				24C6EA231639C46900F36E88 /* 6.png in Resources */,
+				245058C4163B16180073955B /* diceSettings.plist in Resources */,
+				245058C6163B345E0073955B /* Die_sillouette.png in Resources */,
+				24CDD4AE16447ED2006F77BC /* Default Die.png in Resources */,
+				24E992401654B4900041CF9A /* lists.plist in Resources */,
+				24D7907916604C2E00FEF575 /* Heads.png in Resources */,
+				24D7907A16604C2E00FEF575 /* Tails.png in Resources */,
+				24D790801660816900FEF575 /* List_icon.png in Resources */,
+				24D790821660856000FEF575 /* Coin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,8 +396,14 @@
 			files = (
 				24C6E9C31639A31A00F36E88 /* main.m in Sources */,
 				24C6E9C71639A31A00F36E88 /* AppDelegate.m in Sources */,
-				24C6E9D61639A31A00F36E88 /* FirstViewController.m in Sources */,
-				24C6E9DD1639A31A00F36E88 /* SecondViewController.m in Sources */,
+				24C6E9D61639A31A00F36E88 /* DiceViewController.m in Sources */,
+				24C6E9DD1639A31A00F36E88 /* CoinViewController.m in Sources */,
+				24F6C666163DD28100FB19F1 /* SettingsViewController.m in Sources */,
+				24A0EC90163EF1C4008B0DD2 /* StepperCell.m in Sources */,
+				24BAB7551643401C002F7396 /* SwitchCell.m in Sources */,
+				24CDD49C16435C10006F77BC /* ConfigViewController.m in Sources */,
+				240F7E611646F7BE00F2CDCA /* ConfigDetailViewController.m in Sources */,
+				24D7907E1660595500FEF575 /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,14 +440,6 @@
 				24C6E9CF1639A31A00F36E88 /* en */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		24C6E9D11639A31A00F36E88 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24C6E9D21639A31A00F36E88 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		24C6E9F11639A31A00F36E88 /* InfoPlist.strings */ = {
@@ -483,6 +580,7 @@
 				24C6E9FB1639A31A00F36E88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24C6E9FC1639A31A00F36E88 /* Build configuration list for PBXNativeTarget "Decisions, DecisionsTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +589,7 @@
 				24C6E9FE1639A31A00F36E88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
