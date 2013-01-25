@@ -34,11 +34,9 @@ int numDice = 0, numSides = 0, configType = 0;
     if ([fileManager fileExistsAtPath: diceSettingsPath]) {
         
         diceSettings = [[NSMutableDictionary alloc] initWithContentsOfFile: diceSettingsPath];
-        
         configs = [[NSMutableDictionary alloc] initWithDictionary: [diceSettings objectForKey: @"configs"]];
         
     } else {
-        
         NSLog(@"diceSettings not found");
     }
     
@@ -47,7 +45,7 @@ int numDice = 0, numSides = 0, configType = 0;
         lists = [[NSMutableDictionary alloc] initWithContentsOfFile: listsPath];
     }
     
-    diceConfig = [diceSettings objectForKey: @"lastConfig"];
+    diceConfig = diceSettings[@"lastConfig"];
     
     listConfig = lists[@"lastList"];
     currentList = lists[listConfig];
@@ -56,7 +54,7 @@ int numDice = 0, numSides = 0, configType = 0;
         numDice = 1;
         numSides = 6;
     } else {
-        currentConfig = [configs objectForKey: diceConfig];
+        currentConfig = configs[diceConfig];
         numDice = [[currentConfig objectForKey: @"numDice"] intValue];
     }
     

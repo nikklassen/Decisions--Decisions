@@ -47,6 +47,7 @@
 		24D790801660816900FEF575 /* List_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907F1660816900FEF575 /* List_icon.png */; };
 		24D790821660856000FEF575 /* Coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D790811660856000FEF575 /* Coin.png */; };
 		24E992401654B4900041CF9A /* lists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E9923F1654B4900041CF9A /* lists.plist */; };
+		24F2C95016B20825004A22CC /* felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F2C94F16B20825004A22CC /* felt.png */; };
 		24F6C666163DD28100FB19F1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C665163DD28100FB19F1 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		24D7907F1660816900FEF575 /* List_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = List_icon.png; path = "Decisions, Decisions/List_icon.png"; sourceTree = "<group>"; };
 		24D790811660856000FEF575 /* Coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Coin.png; path = "Decisions, Decisions/Coin.png"; sourceTree = "<group>"; };
 		24E9923F1654B4900041CF9A /* lists.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lists.plist; sourceTree = "<group>"; };
+		24F2C94F16B20825004A22CC /* felt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = felt.png; path = "Decisions, Decisions/felt.png"; sourceTree = "<group>"; };
 		24F6C664163DD28100FB19F1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
 		24F6C665163DD28100FB19F1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +236,7 @@
 		24C6EA0B1639BDAE00F36E88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				24F2C94F16B20825004A22CC /* felt.png */,
 				24D790811660856000FEF575 /* Coin.png */,
 				24D7907F1660816900FEF575 /* List_icon.png */,
 				24D7907716604C2E00FEF575 /* Heads.png */,
@@ -360,6 +363,7 @@
 				24D7907A16604C2E00FEF575 /* Tails.png in Resources */,
 				24D790801660816900FEF575 /* List_icon.png in Resources */,
 				24D790821660856000FEF575 /* Coin.png in Resources */,
+				24F2C95016B20825004A22CC /* felt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

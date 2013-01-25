@@ -21,12 +21,14 @@
     coinImages = [NSArray arrayWithObjects:[UIImage imageNamed: @"Tails.png"], [UIImage imageNamed: @"Heads.png"], nil];
     
     [coinView setAnimationImages: coinImages];
-    coinView.AnimationDuration = .2;
+    coinView.AnimationDuration = .3;
     
     //[coinView setImage: [coinImages objectAtIndex: 0]];
     [coinView setImage: [UIImage imageNamed: @"Tails.png"]];
     
     [flipLabel setText: @""];
+    
+    self.view.backgroundColor = [UIColor clearColor];
     
 }
 

@@ -281,7 +281,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Number of Dice: " lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="20">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="lji-lU-ALd"/>
                                     <constraint firstAttribute="width" constant="214" id="z00-Qj-K4q"/>
@@ -312,10 +312,11 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7wp-4Z-6EM">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="5Py-79-WXO"/>
                                 </constraints>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LuV-Bk-UEY">
                                 <accessibility key="accessibilityConfiguration">
@@ -420,6 +421,9 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFN-Mr-MOQ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="GGR-bw-aIq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Spin">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -432,13 +436,24 @@
                                     <action selector="changePicker:" destination="eIz-vH-dMz" eventType="touchUpInside" id="l4n-zK-3eB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spin the wheel!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR3-iO-bhN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="206" id="3pa-hI-4bU"/>
+                                    <constraint firstAttribute="height" constant="54" id="Ebh-mS-ZYA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="zFN-Mr-MOQ" secondAttribute="bottom" constant="39" id="A5b-4Y-NuQ"/>
-                            <constraint firstItem="q7B-8S-Akt" firstAttribute="centerX" secondItem="qYf-x4-JRB" secondAttribute="centerX" type="default" id="Et9-pW-4GN"/>
-                            <constraint firstItem="q7B-8S-Akt" firstAttribute="top" secondItem="qYf-x4-JRB" secondAttribute="top" constant="98" id="F6M-5T-KL8"/>
-                            <constraint firstItem="zFN-Mr-MOQ" firstAttribute="centerX" secondItem="q7B-8S-Akt" secondAttribute="centerX" type="default" id="e4U-oh-acl"/>
+                            <constraint firstItem="hR3-iO-bhN" firstAttribute="centerX" secondItem="q7B-8S-Akt" secondAttribute="centerX" type="default" id="3Nn-v1-8LZ"/>
+                            <constraint firstAttribute="bottom" secondItem="zFN-Mr-MOQ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="E59-J2-oCm"/>
+                            <constraint firstItem="hR3-iO-bhN" firstAttribute="centerX" secondItem="qYf-x4-JRB" secondAttribute="centerX" type="default" id="VoT-AQ-rW2"/>
+                            <constraint firstItem="hR3-iO-bhN" firstAttribute="top" secondItem="qYf-x4-JRB" secondAttribute="top" constant="20" symbolic="YES" type="default" id="dmv-zY-CC4"/>
+                            <constraint firstItem="zFN-Mr-MOQ" firstAttribute="centerX" secondItem="q7B-8S-Akt" secondAttribute="centerX" type="default" id="hx1-CA-4ao"/>
+                            <constraint firstItem="zFN-Mr-MOQ" firstAttribute="top" secondItem="q7B-8S-Akt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rcs-ng-0mT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="List_icon.png" id="b2P-nx-jOZ"/>
@@ -507,7 +522,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b6-HC-Ztt">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b6-HC-Ztt">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="a9X-9S-8Nj"/>
                                 </constraints>

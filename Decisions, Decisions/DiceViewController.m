@@ -9,7 +9,7 @@
 #import "DiceViewController.h"
 #import "SettingsViewController.h"
 
-#define has6 ([diceConfig isEqualToString: @"Custom"] && numSides == 6) //|| ([diceSides containsObject: [NSNumber numberWithInt: 6]])
+#define has6 ([diceConfig isEqualToString: @"Custom"] && numSides == 6) || [diceConfig isEqualToString: @"default"]
 
 int numDice, numSides;
 
@@ -36,7 +36,7 @@ int numDice, numSides;
         // Dice field only used in custom setting
         [diceField setText: [NSString stringWithFormat: @"%d", numDice]];
     }
-    
+
     for (int i = 1; i <= 6; i++) {
         NSString *s = [NSString stringWithFormat:@"%d.png", i];
         UIImage *image = [UIImage imageNamed: s];
@@ -44,13 +44,13 @@ int numDice, numSides;
     }
     
     [diceView setAnimationImages: diceFaces];
-    diceView.AnimationDuration = .5;
-    
+    diceView.AnimationDuration = 0.8;
+
     if (numSides == 6) {
         [diceView setImage: [diceFaces objectAtIndex: 5]];
+    } else {    
+        defaultDieImage = [UIImage imageNamed: @"Default Die.png"];
     }
-    
-    defaultDieImage = [UIImage imageNamed: @"Default Die.png"];
     
     //totalLbl.textAlignment = NSTextAlignmentCenter;
     
@@ -59,16 +59,17 @@ int numDice, numSides;
     
     diceField.delegate = self;
     
+    self.view.backgroundColor = [UIColor clearColor];
+    
 }
 
-- (void) viewDidAppear:(BOOL)animated {
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: animated];
     
-    [super viewDidAppear: animated];
-    
-    NSLog(@"%d", settingsDidChange);
+    if (!showTotal) [totalLbl setText: nil];
     
     [diceField setText: [NSString stringWithFormat: @"%i", numDice]];
-
+    
     if (!(has6)) {
         [diceView setImage: defaultDieImage];
         if (![diceConfig isEqualToString: @"Custom"]) {

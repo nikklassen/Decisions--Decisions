@@ -35,6 +35,8 @@
 	// Do any additional setup after loading the view.
     [picker setDataSource: self];
     [picker setUserInteractionEnabled: NO];
+    
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

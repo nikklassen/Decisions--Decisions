@@ -46,6 +46,7 @@ BOOL isNewConfig;
     
     // Set up displayed part of the configurations
     configNames = [[NSMutableArray alloc] init];
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated {
