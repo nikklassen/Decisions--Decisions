@@ -12,10 +12,12 @@
 
 @interface ListViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
 
-    NSArray *array;
+    NSManagedObjectContext *_managedObjectContext;
+    NSMutableArray *array;
 }
 
 @property (nonatomic, strong) IBOutlet UIPickerView *picker;
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 
 - (IBAction) changePicker:(id)sender;
 

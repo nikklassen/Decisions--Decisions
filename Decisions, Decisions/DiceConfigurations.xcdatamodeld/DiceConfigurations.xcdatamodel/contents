@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DiceModel" representedClassName="DiceModel" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numDice" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="dice" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Die" inverseName="model" inverseEntity="Die" syncable="YES"/>
+    </entity>
+    <entity name="Die" representedClassName="Die" syncable="YES">
+        <attribute name="sides" optional="YES" attributeType="Integer 16" defaultValueString="6" syncable="YES"/>
+        <relationship name="model" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DiceModel" inverseName="dice" inverseEntity="DiceModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DiceModel" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Die" positionX="-297" positionY="9" width="128" height="73"/>
+    </elements>
+</model>

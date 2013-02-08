@@ -10,14 +10,14 @@
 
 #import "ListViewController.h"
 #import "SettingsViewController.h"
-
-@interface ListViewController ()
-
-@end
+#import "AppDelegate.h"
+#import "ListItem.h"
+#import "ListModel.h"
 
 @implementation ListViewController
 
 @synthesize picker;
+@synthesize managedObjectContext = _managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +33,8 @@
     [super viewDidLoad];
     
 	// Do any additional setup after loading the view.
+    self.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] listMOC];
+    NSLog(@"%@", self.managedObjectContext);
     [picker setDataSource: self];
     [picker setUserInteractionEnabled: NO];
     
@@ -43,10 +45,19 @@
     
     [super viewDidAppear: animated];
     
-    if (currentList != NULL) {
-        array = [NSArray arrayWithArray: currentList];
-    } else {
-        array = @[@"Hi", @"Hello", @"How are you?"];
+    array = [NSMutableArray new];
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName: @"ListModel"
+                                              inManagedObjectContext: _managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+
+    for (ListModel *list in fetchedObjects) {
+        for (ListItem *item in list.items) {
+            [array addObject: item.value];
+        }
     }
     
     [picker reloadAllComponents];

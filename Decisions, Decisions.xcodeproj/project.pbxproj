@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		240F7E611646F7BE00F2CDCA /* ConfigDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240F7E601646F7BE00F2CDCA /* ConfigDetailViewController.m */; };
+		241E567B16C4467A00C7CB63 /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 241E567A16C4467A00C7CB63 /* ListModel.m */; };
+		241E567E16C4467A00C7CB63 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 241E567D16C4467A00C7CB63 /* ListItem.m */; };
 		245058C4163B16180073955B /* diceSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 245058C3163B16180073955B /* diceSettings.plist */; };
 		245058C6163B345E0073955B /* Die_sillouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 245058C5163B345E0073955B /* Die_sillouette.png */; };
+		245FECAE16BC38C800439CE9 /* Lists.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 245FECAC16BC38C800439CE9 /* Lists.xcdatamodeld */; };
+		245FECB416BC6D6200439CE9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245FECB216BC6D4F00439CE9 /* CoreData.framework */; };
+		24831A6C16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24831A6A16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld */; };
+		24831A6F16C5565A00A76A0D /* Die.m in Sources */ = {isa = PBXBuildFile; fileRef = 24831A6E16C5565900A76A0D /* Die.m */; };
+		24831A7216C5565A00A76A0D /* DiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24831A7116C5565A00A76A0D /* DiceModel.m */; };
 		24A0EC90163EF1C4008B0DD2 /* StepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0EC8F163EF1C4008B0DD2 /* StepperCell.m */; };
 		24BAB7551643401C002F7396 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BAB7541643401C002F7396 /* SwitchCell.m */; };
 		24C6E9B71639A31A00F36E88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C6E9B61639A31A00F36E88 /* UIKit.framework */; };
@@ -64,8 +71,19 @@
 /* Begin PBXFileReference section */
 		240F7E5F1646F7BE00F2CDCA /* ConfigDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDetailViewController.h; sourceTree = "<group>"; };
 		240F7E601646F7BE00F2CDCA /* ConfigDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigDetailViewController.m; sourceTree = "<group>"; };
+		241E567916C4467A00C7CB63 /* ListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListModel.h; path = "Decisions, Decisions/ListModel.h"; sourceTree = "<group>"; };
+		241E567A16C4467A00C7CB63 /* ListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListModel.m; path = "Decisions, Decisions/ListModel.m"; sourceTree = "<group>"; };
+		241E567C16C4467A00C7CB63 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = "Decisions, Decisions/ListItem.h"; sourceTree = "<group>"; };
+		241E567D16C4467A00C7CB63 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = "Decisions, Decisions/ListItem.m"; sourceTree = "<group>"; };
 		245058C3163B16180073955B /* diceSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = diceSettings.plist; sourceTree = "<group>"; };
 		245058C5163B345E0073955B /* Die_sillouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Die_sillouette.png; path = "Decisions, Decisions/Die_sillouette.png"; sourceTree = "<group>"; };
+		245FECAD16BC38C800439CE9 /* Lists.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lists.xcdatamodel; sourceTree = "<group>"; };
+		245FECB216BC6D4F00439CE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		24831A6B16C5554E00A76A0D /* DiceConfigurations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiceConfigurations.xcdatamodel; sourceTree = "<group>"; };
+		24831A6D16C5565900A76A0D /* Die.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Die.h; sourceTree = "<group>"; };
+		24831A6E16C5565900A76A0D /* Die.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Die.m; sourceTree = "<group>"; };
+		24831A7016C5565A00A76A0D /* DiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiceModel.h; sourceTree = "<group>"; };
+		24831A7116C5565A00A76A0D /* DiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiceModel.m; sourceTree = "<group>"; };
 		24A0EC8E163EF1C4008B0DD2 /* StepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperCell.h; sourceTree = "<group>"; };
 		24A0EC8F163EF1C4008B0DD2 /* StepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperCell.m; sourceTree = "<group>"; };
 		24BAB7531643401C002F7396 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
@@ -124,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				245FECB416BC6D6200439CE9 /* CoreData.framework in Frameworks */,
 				24C6E9B71639A31A00F36E88 /* UIKit.framework in Frameworks */,
 				24C6E9B91639A31A00F36E88 /* Foundation.framework in Frameworks */,
 				24C6E9BB1639A31A00F36E88 /* CoreGraphics.framework in Frameworks */,
@@ -143,12 +162,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		241E567816C4455500C7CB63 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				241E567916C4467A00C7CB63 /* ListModel.h */,
+				241E567C16C4467A00C7CB63 /* ListItem.h */,
+				241E567D16C4467A00C7CB63 /* ListItem.m */,
+				241E567A16C4467A00C7CB63 /* ListModel.m */,
+				245FECAC16BC38C800439CE9 /* Lists.xcdatamodeld */,
+				24831A6A16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld */,
+				24831A7016C5565A00A76A0D /* DiceModel.h */,
+				24831A7116C5565A00A76A0D /* DiceModel.m */,
+				24831A6D16C5565900A76A0D /* Die.h */,
+				24831A6E16C5565900A76A0D /* Die.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		24C6E9A71639A31A00F36E88 = {
 			isa = PBXGroup;
 			children = (
+				241E567816C4455500C7CB63 /* Models */,
 				24CDD49F16445C7A006F77BC /* Cells */,
-				24C6EA0B1639BDAE00F36E88 /* Resources */,
-				24C6E9BC1639A31A00F36E88 /* Decisions, Decisions */,
+				24C6EA0B1639BDAE00F36E88 /* Images */,
+				24C6E9BC1639A31A00F36E88 /* Controllers */,
 				24C6E9EE1639A31A00F36E88 /* Decisions, DecisionsTests */,
 				24C6E9B51639A31A00F36E88 /* Frameworks */,
 				24C6E9B31639A31A00F36E88 /* Products */,
@@ -167,6 +204,7 @@
 		24C6E9B51639A31A00F36E88 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				245FECB216BC6D4F00439CE9 /* CoreData.framework */,
 				24C6E9B61639A31A00F36E88 /* UIKit.framework */,
 				24C6E9B81639A31A00F36E88 /* Foundation.framework */,
 				24C6E9BA1639A31A00F36E88 /* CoreGraphics.framework */,
@@ -175,7 +213,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		24C6E9BC1639A31A00F36E88 /* Decisions, Decisions */ = {
+		24C6E9BC1639A31A00F36E88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				24F6C664163DD28100FB19F1 /* SettingsViewController.h */,
@@ -195,6 +233,7 @@
 				24D7907D1660595500FEF575 /* ListViewController.m */,
 				24C6E9BD1639A31A00F36E88 /* Supporting Files */,
 			);
+			name = Controllers;
 			path = "Decisions, Decisions";
 			sourceTree = "<group>";
 		};
@@ -233,7 +272,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		24C6EA0B1639BDAE00F36E88 /* Resources */ = {
+		24C6EA0B1639BDAE00F36E88 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				24F2C94F16B20825004A22CC /* felt.png */,
@@ -254,7 +293,7 @@
 				24C6E9DE1639A31A00F36E88 /* second.png */,
 				24C6E9E01639A31A00F36E88 /* second@2x.png */,
 			);
-			name = Resources;
+			name = Images;
 			sourceTree = "<group>";
 		};
 		24CDD49F16445C7A006F77BC /* Cells */ = {
@@ -408,6 +447,12 @@
 				24CDD49C16435C10006F77BC /* ConfigViewController.m in Sources */,
 				240F7E611646F7BE00F2CDCA /* ConfigDetailViewController.m in Sources */,
 				24D7907E1660595500FEF575 /* ListViewController.m in Sources */,
+				245FECAE16BC38C800439CE9 /* Lists.xcdatamodeld in Sources */,
+				241E567B16C4467A00C7CB63 /* ListModel.m in Sources */,
+				241E567E16C4467A00C7CB63 /* ListItem.m in Sources */,
+				24831A6C16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld in Sources */,
+				24831A6F16C5565A00A76A0D /* Die.m in Sources */,
+				24831A7216C5565A00A76A0D /* DiceModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +641,31 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		245FECAC16BC38C800439CE9 /* Lists.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				245FECAD16BC38C800439CE9 /* Lists.xcdatamodel */,
+			);
+			currentVersion = 245FECAD16BC38C800439CE9 /* Lists.xcdatamodel */;
+			name = Lists.xcdatamodeld;
+			path = "Decisions, Decisions/Lists.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		24831A6A16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				24831A6B16C5554E00A76A0D /* DiceConfigurations.xcdatamodel */,
+			);
+			currentVersion = 24831A6B16C5554E00A76A0D /* DiceConfigurations.xcdatamodel */;
+			name = DiceConfigurations.xcdatamodeld;
+			path = "Decisions, Decisions/DiceConfigurations.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 24C6E9A91639A31A00F36E88 /* Project object */;
 }

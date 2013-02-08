@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3006" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ListItem" representedClassName="ListItem" syncable="YES">
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="list" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ListModel" inverseName="items" inverseEntity="ListModel" syncable="YES"/>
+    </entity>
+    <entity name="ListModel" representedClassName="ListModel" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListItem" inverseName="list" inverseEntity="ListItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ListModel" positionX="-2493" positionY="-117" width="128" height="73"/>
+        <element name="ListItem" positionX="-2709" positionY="-99" width="128" height="73"/>
+    </elements>
+</model>
