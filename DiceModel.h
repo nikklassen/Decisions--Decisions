@@ -14,7 +14,7 @@
 @interface DiceModel : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic) NSNumber * numDice;
+@property (nonatomic) int16_t numDice;
 @property (nonatomic, retain) NSSet *dice;
 @end
 

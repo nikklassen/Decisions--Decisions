@@ -6,15 +6,18 @@
 //  Copyright (c) 2012 Nik Klassen. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "SettingsViewController.h"
 #import "StepperCell.h"
 #import "SwitchCell.h"
-#import "DiceViewController.h"
+#import "DiceModel.h"
+#import "Die.h"
 
 #define ROW_HEIGHT 44
 
 NSMutableDictionary *diceSettings = nil, *lists = nil, *currentConfig = nil, *configs = nil;
 NSMutableArray *currentList = nil;
+NSUserDefaults *prefs = nil;
 NSString *diceConfig = nil, *listConfig = nil, *diceSettingsPath = nil, *listsPath = nil;
 BOOL settingsDidChange, showTotal;
 int numDice = 0, numSides = 0, configType = 0;
@@ -23,44 +26,22 @@ int numDice = 0, numSides = 0, configType = 0;
 
 + (void) loadSettings {
     
-    //NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *userDefaultsValuesPath =[[NSBundle mainBundle] pathForResource:@"appDefaults"
+																	  ofType:@"plist"];
     
+	NSDictionary *userDefaultsValuesDict = [NSDictionary dictionaryWithContentsOfFile: userDefaultsValuesPath];
     
+	[[NSUserDefaults standardUserDefaults] registerDefaults: userDefaultsValuesDict];
     
-    /*diceSettingsPath = [[NSString alloc] init];
-    listsPath = [[NSString alloc] init];
+	if (![[NSUserDefaults standardUserDefaults] synchronize])
+		NSLog(@"not successful in writing the default prefs");
     
-    diceSettingsPath = [[NSBundle mainBundle] pathForResource:@"diceSettings" ofType:@"plist"];
-    listsPath = [[NSBundle mainBundle] pathForResource:@"lists" ofType:@"plist"];
+	prefs = [NSUserDefaults standardUserDefaults];
+	
+	diceConfig = [prefs stringForKey: @"lastDice"];
+    listConfig = [prefs stringForKey: @"lastList"];
+    showTotal = [prefs boolForKey: @"showTotal"];
     
-    if ([fileManager fileExistsAtPath: diceSettingsPath]) {
-        
-        diceSettings = [[NSMutableDictionary alloc] initWithContentsOfFile: diceSettingsPath];
-        configs = [[NSMutableDictionary alloc] initWithDictionary: [diceSettings objectForKey: @"configs"]];
-        
-    } else {
-        NSLog(@"diceSettings not found");
-    }
-    
-    if ([fileManager fileExistsAtPath: listsPath]) {
-        
-        lists = [[NSMutableDictionary alloc] initWithContentsOfFile: listsPath];
-    }
-    
-    diceConfig = diceSettings[@"lastConfig"];
-    
-    listConfig = lists[@"lastList"];
-    currentList = lists[listConfig];
-    
-    if ([diceConfig isEqualToString: @"default"]) {
-        numDice = 1;
-        numSides = 6;
-    } else {
-        currentConfig = configs[diceConfig];
-        numDice = [[currentConfig objectForKey: @"numDice"] intValue];
-    }
-    
-    showTotal = [[diceSettings objectForKey: @"showTotal"] boolValue];*/
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -97,7 +78,7 @@ int numDice = 0, numSides = 0, configType = 0;
 
 - (void) viewDidAppear:(BOOL)animated {
     
-    if ([diceConfig isEqualToString: @"Custom"] && settingsDidChange) {
+    if ([diceConfig isEqualToString: @"custom"] && settingsDidChange) {
         
         numDice = [[currentConfig objectForKey: @"numDice"] intValue];
         numSides = [[currentConfig objectForKey: @"numSides"] intValue];
@@ -110,36 +91,39 @@ int numDice = 0, numSides = 0, configType = 0;
 }
 
 #pragma mark - Settings adjustments
--(IBAction) save:(id)sender {
+-(void)viewWillDisappear:(BOOL)animated {
     
-    if ([diceConfig isEqualToString: @"Custom"]) {
+    NSDictionary *userInfo;
+    
+    if ([diceConfig isEqualToString: @"custom"]) {
         
-        [currentConfig setObject: @(numDice) forKey: @"numDice"];
-        [currentConfig setObject: @(numSides) forKey: @"numSides"];
+        NSManagedObjectContext *context = [appDelegate diceMOC];
         
-        // Write over the "custom" configuration in the configs dictionary
-        [configs setObject: [NSDictionary dictionaryWithDictionary: currentConfig] forKey: @"Custom"];
+        NSFetchRequest *request = [NSFetchRequest new];
+        [request setEntity: [NSEntityDescription entityForName: @"DiceModel" inManagedObjectContext:context]];
         
-    } else {
+        NSError *error;
+        NSArray *a = [context executeFetchRequest: request error: &error];
         
-        numDice = [[currentConfig objectForKey: @"numDice"] intValue];
+        for (DiceModel *model in a) {
+            if ([model.name isEqualToString: @"custom"]) {
+                [model removeDice: model.dice];
+                NSMutableSet *dice = [NSMutableSet new];
+                for (int i = 0; i < numDice; i++) {
+                    Die *d = [NSEntityDescription insertNewObjectForEntityForName: @"Die" inManagedObjectContext:context];
+                    d.sides = @(numSides);
+                    [dice addObject: d];
+                }
+                [model addDice: dice];
+            }
+        }
+        
+        userInfo = @{@"numDice": @(numDice), @"numSides": @(numSides), @"config": @"custom"};
     }
     
-    if (settingsDidChange) {
-        // Write (revised) list of configs
-        [diceSettings setObject: configs forKey: @"configs"];
+#warning Add logic for setting changing configurations
     
-        // Rewrite settings to plist
-        [diceSettings writeToFile: diceSettingsPath atomically: YES];
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Save Complete"
-                                                    message: @"Settings have been successfully saved."
-                                                   delegate: nil
-                                          cancelButtonTitle: @"Dismiss"
-                                          otherButtonTitles: nil];
-    
-    [alert show];
+    [super viewWillDisappear: animated];
 }
 
 #pragma mark - Table view data source
@@ -152,7 +136,6 @@ int numDice = 0, numSides = 0, configType = 0;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     if (section == kDiceSection) {
         return 4;
     } else if (section == kListSection) {
@@ -199,17 +182,20 @@ int numDice = 0, numSides = 0, configType = 0;
                 case 1:
                     (numDice != -1) ? (cell.stepper.value = numDice) : (cell.stepper.value = 0);
                     cell.field.text = [NSString stringWithFormat: @"%i", (int)cell.stepper.value];
+                    cell.field.tag = kNumDice;
                     cell.stepper.tag = kNumDice;
                     break;
                 case 2:
                     (numSides != -1) ? (cell.stepper.value = numSides) : (cell.stepper.value = 0);
                     cell.field.text = [NSString stringWithFormat: @"%i", (int)cell.stepper.value];
+                    cell.field.tag = kNumSides;
                     cell.stepper.tag = kNumSides;
                 default:
                     break;
             }
+            cell.field.delegate = self;
             
-            if (![diceConfig isEqualToString: @"Custom"]) {
+            if (![diceConfig isEqualToString: @"custom"]) {
                 [cell.stepper setEnabled: NO];
                 [cell.field setEnabled: NO];
             } else {
@@ -227,7 +213,7 @@ int numDice = 0, numSides = 0, configType = 0;
             
             cell.label.text = [settings objectAtIndex: indexPath.row];
             
-            [cell.toggle setOn: [diceSettings[@"showTotal"] boolValue] animated: NO];
+            [cell.toggle setOn: showTotal animated: NO];
             
             return cell;
             
@@ -239,7 +225,6 @@ int numDice = 0, numSides = 0, configType = 0;
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         
-        // Configure the cell...
         cell.textLabel.text = [settings objectAtIndex: indexPath.row + 4];
         cell.tag = kListSection;
         
@@ -265,7 +250,7 @@ int numDice = 0, numSides = 0, configType = 0;
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
     UITableViewCell *cell = [tableView cellForRowAtIndexPath: indexPath];
     
     if (indexPath.row == 0) {
@@ -274,6 +259,17 @@ int numDice = 0, numSides = 0, configType = 0;
     }
     
     [cell setSelected: NO animated: NO];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+
+    if (textField.tag == kNumDice) {
+        numDice = textField.text.intValue;
+    } else if (textField.tag == kNumSides) {
+        numSides = textField.text.intValue;
+    }
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

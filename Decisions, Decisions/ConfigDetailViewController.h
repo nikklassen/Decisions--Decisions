@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class ConfigViewController;
 @class SettingsViewController;
+@class ConfigViewController;
 
-@interface ConfigDetailViewController : UITableViewController <UIAlertViewDelegate>
+@interface ConfigDetailViewController : UITableViewController <UIAlertViewDelegate> {
+    id _edittingModel;
+    NSManagedObjectContext *_edittingContext;
+    BOOL *_shouldLoadNewData;
+
+}
 
 - (IBAction) add:(id)sender;
 - (IBAction) save:(id)sender;

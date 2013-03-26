@@ -6,10 +6,11 @@
     </entity>
     <entity name="ListModel" representedClassName="ListModel" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numItems" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ListItem" inverseName="list" inverseEntity="ListItem" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ListModel" positionX="-2493" positionY="-117" width="128" height="73"/>
         <element name="ListItem" positionX="-2709" positionY="-99" width="128" height="73"/>
+        <element name="ListModel" positionX="-2493" positionY="-117" width="128" height="88"/>
     </elements>
 </model>

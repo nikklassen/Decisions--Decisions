@@ -11,7 +11,7 @@
 @class DiceViewController;
 @class SettingsViewController;
 
-@interface StepperCell : UITableViewCell
+@interface StepperCell : UITableViewCell <UITextFieldDelegate>
 
 -(IBAction) step:(id)sender;
 

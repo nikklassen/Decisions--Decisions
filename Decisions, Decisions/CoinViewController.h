@@ -12,8 +12,12 @@
 
 @interface CoinViewController : UIViewController <UITextFieldDelegate> {
     
+    UIImageView *frontImageView, *backImageView;
+    UIView *containerView;
     NSArray *coinImages;
     int numCoins;
+
+    IBOutlet UITextField *_textField;
 }
 
 @property (nonatomic, strong) IBOutlet UIImageView *coinView;

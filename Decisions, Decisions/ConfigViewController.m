@@ -6,16 +6,21 @@
 //  Copyright (c) 2012 Nik Klassen. All rights reserved.
 //
 
+#import "AppDelegate.h"
+#import "DiceModel.h"
+#import "Die.h"
+#import "ListModel.h"
+#import "ListItem.h"
 #import "ConfigViewController.h"
 #import "SettingsViewController.h"
 #import "ConfigDetailViewController.h"
 
+NSString *configToEdit = nil;
+BOOL isNewConfig;
+
 @interface ConfigViewController ()
 
 @end
-
-NSString *configToEdit = nil;
-BOOL isNewConfig;
 
 @implementation ConfigViewController
 
@@ -38,18 +43,15 @@ BOOL isNewConfig;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    if (configType == kDiceSection) {
-        configs = [[NSMutableDictionary alloc] initWithDictionary: [diceSettings objectForKey: @"configs"]];
-    } else if (configType == kListSection) {
-        configs = [[NSMutableDictionary alloc] initWithDictionary: lists];
-    }
-    
     // Set up displayed part of the configurations
     configNames = [[NSMutableArray alloc] init];
-    
 }
 
-- (void) viewDidAppear:(BOOL)animated {
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear: animated];
+    NSFetchRequest *request = [NSFetchRequest new];
+    NSError *error;
     
     if (configNames.count) {
         [configNames removeAllObjects];
@@ -59,10 +61,40 @@ BOOL isNewConfig;
         [configNames insertObject: @"Custom" atIndex: 0];
     }
     
-    [configNames addObjectsFromArray: [configs allKeys]];
-    [configNames removeObject: @"Custom" inRange: NSMakeRange(1, configNames.count-1)];
+    //[configNames addObjectsFromArray: [configs allKeys]];
+    //[configNames removeObject: @"Custom" inRange: NSMakeRange(1, configNames.count-1)];
+    
+    if (configType == kDiceSection) {
+        
+        NSManagedObjectContext *context = [appDelegate diceMOC];
+        NSEntityDescription *d = diceEntity;
+        [request setEntity: d];
+        returnedModels = [context executeFetchRequest: request error: &error];
+        
+        for (DiceModel *model in returnedModels) {
+            if (![model.name isEqualToString: @"custom"])
+                [configNames addObject: [model.name capitalizedString]];
+        }
+        
+    } else if (configType == kListSection) {
+        
+        NSManagedObjectContext *context = [appDelegate listMOC];
+        NSEntityDescription *d = listEntity;
+        [request setEntity: d];
+        returnedModels = [context executeFetchRequest: request error: &error];
+        
+        for (ListModel *model in returnedModels) {
+            [configNames addObject: [model.name capitalizedString]];
+        }
+    }
     
     [self.tableView reloadData];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear: animated];
+    NSDictionary *userInfo = @{@"config": [diceConfig lowercaseString]};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeConfig" object:nil userInfo:userInfo];
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,9 +141,9 @@ BOOL isNewConfig;
             
             cell = [tableView dequeueReusableCellWithIdentifier: @"Basic" forIndexPath:indexPath];
             
-            cell.textLabel.text = [configNames objectAtIndex: indexPath.row-1];
-            
-            if ([cell.textLabel.text isEqualToString: diceConfig] || [cell.textLabel.text isEqualToString:listConfig]) {
+            cell.textLabel.text = configNames[indexPath.row-1];
+
+            if ([cell.textLabel.text isEqualToString: [diceConfig capitalizedString]] || [cell.textLabel.text isEqualToString: [listConfig capitalizedString]]) {
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 checkedCell = indexPath;
             } else {
@@ -142,8 +174,8 @@ BOOL isNewConfig;
     
     [super setEditing: editing animated: animated];
     
-    NSArray *addPath = [NSArray arrayWithObjects: [NSIndexPath indexPathForRow: 0 inSection:0],
-                        [NSIndexPath indexPathForRow: 1 inSection:0], nil];
+    NSArray *addPath = @[[NSIndexPath indexPathForRow: 0 inSection:0],
+                        [NSIndexPath indexPathForRow: 1 inSection:0]];
     
     if (editing) {
         
@@ -170,37 +202,56 @@ BOOL isNewConfig;
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
+        if (configType == kDiceSection) {
+            // Delete the current model from the model
+            for (DiceModel *model in returnedModels) {
+                if ([[model.name capitalizedString] isEqualToString: [tableView cellForRowAtIndexPath: indexPath].textLabel.text]) {
+                    [[appDelegate diceMOC] deleteObject: model];
+                }
+            }
+            
+            NSError *error;
+            [[appDelegate diceMOC] save: &error];
+            
+            // Set diceConfig to selected configuration
+            if (![[diceConfig capitalizedString] isEqualToString: [tableView cellForRowAtIndexPath: indexPath].textLabel.text]) {
+                diceConfig = [configNames[indexPath.row-1] lowercaseString];
+            } else {
+                diceConfig = @"custom";
+            }
+            currentConfig = configs[diceConfig];
+            
+        } else {
+            for (ListModel *model in returnedModels) {
+                if ([[model.name capitalizedString] isEqualToString: [tableView cellForRowAtIndexPath: indexPath].textLabel.text]) {
+                    [[appDelegate listMOC] deleteObject: model];
+                }
+            }
+            
+            NSError *error;
+            [[appDelegate listMOC] save: &error];
+            
+            // Set diceConfig to selected configuration
+            if (![[listConfig capitalizedString] isEqualToString: [tableView cellForRowAtIndexPath: indexPath].textLabel.text]) {
+                listConfig = [configNames[indexPath.row-1] lowercaseString];
+            } else {
+                listConfig = @"custom";
+            }
+            currentList = lists[diceConfig];
+        }
+        
+        checkedCell = indexPath;
+        
         // Delete the row from the data source
+        [configNames removeObjectAtIndex: indexPath.row+1];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
-        [configs removeObjectForKey: [configNames objectAtIndex: indexPath.row-1]];
-        [configNames removeObjectAtIndex: indexPath.row+1];
-        
+        [tableView reloadData];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
 }
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- if (indexPath.row == 0 || indexPath.row == 1) {
- return NO;
- } else {
- return YES;
- }
- }
- */
 
 #pragma mark - Table view delegate
 
@@ -239,7 +290,7 @@ BOOL isNewConfig;
             [NSThread sleepForTimeInterval: 0.15];
             
             // Set diceConfig to selected configuration
-            diceConfig = configNames[indexPath.row-1];
+            diceConfig = [configNames[indexPath.row-1] lowercaseString];
             currentConfig = configs[diceConfig];
             
             checkedCell = indexPath;
@@ -277,7 +328,7 @@ BOOL isNewConfig;
         
         configToEdit = [[alertView textFieldAtIndex: 0] text];
         isNewConfig = YES;
-        
+
         [self performSegueWithIdentifier: @"configDetail"
                                   sender: self];
         

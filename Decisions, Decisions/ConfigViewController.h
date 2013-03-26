@@ -16,7 +16,9 @@ extern BOOL isNewConfig;
 @interface ConfigViewController : UITableViewController <UIAlertViewDelegate> {
     
     NSMutableArray *configNames;
+    NSArray *returnedModels;
     NSIndexPath *checkedCell;
+    
 }
 
 @end

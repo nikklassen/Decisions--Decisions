@@ -5,9 +5,12 @@
 //  Created by Nik Klassen on 2012-10-25.
 //  Copyright (c) 2012 Nik Klassen. All rights reserved.
 //
+@class SettingsViewController;
 
 #import <UIKit/UIKit.h>
-
+#define appDelegate (AppDelegate *)[[UIApplication sharedApplication] delegate]
+#define diceEntity [NSEntityDescription entityForName: @"DiceModel" inManagedObjectContext: [appDelegate diceMOC]];
+#define listEntity [NSEntityDescription entityForName: @"ListModel" inManagedObjectContext: [appDelegate listMOC]];
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     
     NSManagedObjectContext *_listMOC;
@@ -33,6 +36,7 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *diceMOM;
 
 - (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+- (void)createEntities;
+- (NSString *)applicationDocumentsDirectory;
 
 @end

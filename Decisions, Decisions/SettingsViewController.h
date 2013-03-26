@@ -12,6 +12,9 @@
 extern NSMutableDictionary *diceSettings;
 extern NSMutableDictionary *lists;
 
+// User Defaults
+extern NSUserDefaults *prefs;
+
 // Contains the list of configurations, including custom, not including default
 extern NSMutableDictionary *configs;
 
@@ -27,7 +30,7 @@ extern NSString *diceConfig, *listConfig, *diceSettingsPath, *listsPath;
 extern BOOL settingsDidChange, showTotal;
 extern int numDice, numSides, configType;
 
-@interface SettingsViewController : UITableViewController {
+@interface SettingsViewController : UITableViewController <UITextFieldDelegate> {
     
     enum Sections {
         kDiceSection = 0,
@@ -51,6 +54,5 @@ extern int numDice, numSides, configType;
 @property (nonatomic, retain) NSManagedObjectContext *diceContext;
 
 + (void) loadSettings;
-- (IBAction) save:(id)sender;
 
 @end

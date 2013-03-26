@@ -2,13 +2,14 @@
 //  Die.h
 //  Decisions, Decisions
 //
-//  Created by Nik Klassen on 2013-02-08.
+//  Created by Nik Klassen on 2013-02-11.
 //  Copyright (c) 2013 Nik Klassen. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "DiceModel.h"
+
+@class DiceModel;
 
 @interface Die : NSManagedObject
 

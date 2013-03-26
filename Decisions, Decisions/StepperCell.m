@@ -25,7 +25,7 @@
 
 -(IBAction) step: (id)sender {
     
-    if ([diceConfig isEqualToString: @"Custom"]) {
+    if ([diceConfig isEqualToString: @"custom"]) {
         switch ([sender tag]) {
             case kNumDice:
                     numDice = (int)stepper.value;
@@ -40,6 +40,5 @@
         settingsDidChange = YES;
     }
 }
-
 
 @end

@@ -7,16 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2401F48416C94B1B00E46BFE /* Die.m in Sources */ = {isa = PBXBuildFile; fileRef = 2401F48316C94B1B00E46BFE /* Die.m */; };
+		2401F48916C958D900E46BFE /* Heads2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2401F48616C958D900E46BFE /* Heads2.png */; };
+		2401F48A16C958D900E46BFE /* Heads3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2401F48716C958D900E46BFE /* Heads3.png */; };
+		2401F48B16C958D900E46BFE /* Heads4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2401F48816C958D900E46BFE /* Heads4.png */; };
+		2401F48F16C95AB600E46BFE /* Tails2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2401F48C16C95AB600E46BFE /* Tails2.png */; };
+		2401F49016C95AB600E46BFE /* Tails3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2401F48D16C95AB600E46BFE /* Tails3.png */; };
+		2401F49116C95AB600E46BFE /* Tails4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2401F48E16C95AB600E46BFE /* Tails4.png */; };
 		240F7E611646F7BE00F2CDCA /* ConfigDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240F7E601646F7BE00F2CDCA /* ConfigDetailViewController.m */; };
-		241E567B16C4467A00C7CB63 /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 241E567A16C4467A00C7CB63 /* ListModel.m */; };
 		241E567E16C4467A00C7CB63 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 241E567D16C4467A00C7CB63 /* ListItem.m */; };
-		245058C4163B16180073955B /* diceSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 245058C3163B16180073955B /* diceSettings.plist */; };
+		2422999F16CAA36600767009 /* ListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422999E16CAA36600767009 /* ListModel.m */; };
+		243E068316EF9DA200976346 /* DiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 243E068216EF9DA200976346 /* DiceModel.m */; };
+		245058C4163B16180073955B /* appDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 245058C3163B16180073955B /* appDefaults.plist */; };
 		245058C6163B345E0073955B /* Die_sillouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 245058C5163B345E0073955B /* Die_sillouette.png */; };
 		245FECAE16BC38C800439CE9 /* Lists.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 245FECAC16BC38C800439CE9 /* Lists.xcdatamodeld */; };
 		245FECB416BC6D6200439CE9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 245FECB216BC6D4F00439CE9 /* CoreData.framework */; };
+		246FD50716C6A97200B54C49 /* question_mark.png in Resources */ = {isa = PBXBuildFile; fileRef = 246FD50616C6A97200B54C49 /* question_mark.png */; };
 		24831A6C16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24831A6A16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld */; };
-		24831A6F16C5565A00A76A0D /* Die.m in Sources */ = {isa = PBXBuildFile; fileRef = 24831A6E16C5565900A76A0D /* Die.m */; };
-		24831A7216C5565A00A76A0D /* DiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24831A7116C5565A00A76A0D /* DiceModel.m */; };
+		24831AA116C56D3C00A76A0D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24831AA016C56D3C00A76A0D /* SettingsViewController.m */; };
+		249D603316CD4C120092622E /* Lists.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 245FECAC16BC38C800439CE9 /* Lists.xcdatamodeld */; };
+		249D603416CD4C120092622E /* DiceConfigurations.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 24831A6A16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld */; };
+		249D603816CD61870092622E /* question_mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 249D603716CD61870092622E /* question_mark@2x.png */; };
+		249D603B16CD639C0092622E /* defaultDice.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 249D603916CD639C0092622E /* defaultDice.sqlite */; };
+		249D603C16CD639C0092622E /* defaultList.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 249D603A16CD639C0092622E /* defaultList.sqlite */; };
 		24A0EC90163EF1C4008B0DD2 /* StepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0EC8F163EF1C4008B0DD2 /* StepperCell.m */; };
 		24BAB7551643401C002F7396 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24BAB7541643401C002F7396 /* SwitchCell.m */; };
 		24C6E9B71639A31A00F36E88 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C6E9B61639A31A00F36E88 /* UIKit.framework */; };
@@ -48,14 +61,13 @@
 		24C6EA231639C46900F36E88 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 24C6EA1D1639C46900F36E88 /* 6.png */; };
 		24CDD49C16435C10006F77BC /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CDD49B16435C10006F77BC /* ConfigViewController.m */; };
 		24CDD4AE16447ED2006F77BC /* Default Die.png in Resources */ = {isa = PBXBuildFile; fileRef = 24CDD4AD16447ED2006F77BC /* Default Die.png */; };
-		24D7907916604C2E00FEF575 /* Heads.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907716604C2E00FEF575 /* Heads.png */; };
-		24D7907A16604C2E00FEF575 /* Tails.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907816604C2E00FEF575 /* Tails.png */; };
+		24D7907916604C2E00FEF575 /* Heads1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907716604C2E00FEF575 /* Heads1.png */; };
+		24D7907A16604C2E00FEF575 /* Tails1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907816604C2E00FEF575 /* Tails1.png */; };
 		24D7907E1660595500FEF575 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D7907D1660595500FEF575 /* ListViewController.m */; };
 		24D790801660816900FEF575 /* List_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D7907F1660816900FEF575 /* List_icon.png */; };
 		24D790821660856000FEF575 /* Coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D790811660856000FEF575 /* Coin.png */; };
-		24E992401654B4900041CF9A /* lists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24E9923F1654B4900041CF9A /* lists.plist */; };
+		24DF675516C81887004A394D /* Gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DF675416C81887004A394D /* Gear.png */; };
 		24F2C95016B20825004A22CC /* felt.png in Resources */ = {isa = PBXBuildFile; fileRef = 24F2C94F16B20825004A22CC /* felt.png */; };
-		24F6C666163DD28100FB19F1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C665163DD28100FB19F1 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,21 +81,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2401F48216C94B1B00E46BFE /* Die.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Die.h; path = "Decisions, Decisions/Die.h"; sourceTree = "<group>"; };
+		2401F48316C94B1B00E46BFE /* Die.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Die.m; path = "Decisions, Decisions/Die.m"; sourceTree = "<group>"; };
+		2401F48616C958D900E46BFE /* Heads2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Heads2.png; path = "Decisions, Decisions/Coin/Heads2.png"; sourceTree = "<group>"; };
+		2401F48716C958D900E46BFE /* Heads3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Heads3.png; path = "Decisions, Decisions/Coin/Heads3.png"; sourceTree = "<group>"; };
+		2401F48816C958D900E46BFE /* Heads4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Heads4.png; path = "Decisions, Decisions/Coin/Heads4.png"; sourceTree = "<group>"; };
+		2401F48C16C95AB600E46BFE /* Tails2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tails2.png; path = "Decisions, Decisions/Coin/Tails2.png"; sourceTree = "<group>"; };
+		2401F48D16C95AB600E46BFE /* Tails3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tails3.png; path = "Decisions, Decisions/Coin/Tails3.png"; sourceTree = "<group>"; };
+		2401F48E16C95AB600E46BFE /* Tails4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tails4.png; path = "Decisions, Decisions/Coin/Tails4.png"; sourceTree = "<group>"; };
 		240F7E5F1646F7BE00F2CDCA /* ConfigDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDetailViewController.h; sourceTree = "<group>"; };
 		240F7E601646F7BE00F2CDCA /* ConfigDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigDetailViewController.m; sourceTree = "<group>"; };
-		241E567916C4467A00C7CB63 /* ListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListModel.h; path = "Decisions, Decisions/ListModel.h"; sourceTree = "<group>"; };
-		241E567A16C4467A00C7CB63 /* ListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListModel.m; path = "Decisions, Decisions/ListModel.m"; sourceTree = "<group>"; };
 		241E567C16C4467A00C7CB63 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = "Decisions, Decisions/ListItem.h"; sourceTree = "<group>"; };
 		241E567D16C4467A00C7CB63 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = "Decisions, Decisions/ListItem.m"; sourceTree = "<group>"; };
-		245058C3163B16180073955B /* diceSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = diceSettings.plist; sourceTree = "<group>"; };
+		2422999D16CAA36600767009 /* ListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListModel.h; path = "Decisions, Decisions/ListModel.h"; sourceTree = "<group>"; };
+		2422999E16CAA36600767009 /* ListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListModel.m; path = "Decisions, Decisions/ListModel.m"; sourceTree = "<group>"; };
+		243E068116EF9DA200976346 /* DiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceModel.h; path = "Decisions, Decisions/DiceModel.h"; sourceTree = "<group>"; };
+		243E068216EF9DA200976346 /* DiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceModel.m; path = "Decisions, Decisions/DiceModel.m"; sourceTree = "<group>"; };
+		245058C3163B16180073955B /* appDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = appDefaults.plist; sourceTree = "<group>"; };
 		245058C5163B345E0073955B /* Die_sillouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Die_sillouette.png; path = "Decisions, Decisions/Die_sillouette.png"; sourceTree = "<group>"; };
 		245FECAD16BC38C800439CE9 /* Lists.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lists.xcdatamodel; sourceTree = "<group>"; };
 		245FECB216BC6D4F00439CE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		246FD50616C6A97200B54C49 /* question_mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = question_mark.png; path = "Decisions, Decisions/question_mark.png"; sourceTree = "<group>"; };
 		24831A6B16C5554E00A76A0D /* DiceConfigurations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiceConfigurations.xcdatamodel; sourceTree = "<group>"; };
-		24831A6D16C5565900A76A0D /* Die.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Die.h; sourceTree = "<group>"; };
-		24831A6E16C5565900A76A0D /* Die.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Die.m; sourceTree = "<group>"; };
-		24831A7016C5565A00A76A0D /* DiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiceModel.h; sourceTree = "<group>"; };
-		24831A7116C5565A00A76A0D /* DiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiceModel.m; sourceTree = "<group>"; };
+		24831A9F16C56D3C00A76A0D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		24831AA016C56D3C00A76A0D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		249D603716CD61870092622E /* question_mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "question_mark@2x.png"; sourceTree = "<group>"; };
+		249D603916CD639C0092622E /* defaultDice.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultDice.sqlite; sourceTree = "<group>"; };
+		249D603A16CD639C0092622E /* defaultList.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = defaultList.sqlite; sourceTree = "<group>"; };
 		24A0EC8E163EF1C4008B0DD2 /* StepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperCell.h; sourceTree = "<group>"; };
 		24A0EC8F163EF1C4008B0DD2 /* StepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperCell.m; sourceTree = "<group>"; };
 		24BAB7531643401C002F7396 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
@@ -125,16 +149,14 @@
 		24CDD49B16435C10006F77BC /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 		24CDD4A016445D23006F77BC /* CoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinViewController.h; sourceTree = "<group>"; };
 		24CDD4AD16447ED2006F77BC /* Default Die.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default Die.png"; path = "Decisions, Decisions/Default Die.png"; sourceTree = "<group>"; };
-		24D7907716604C2E00FEF575 /* Heads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Heads.png; path = "Decisions, Decisions/Heads.png"; sourceTree = "<group>"; };
-		24D7907816604C2E00FEF575 /* Tails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tails.png; path = "Decisions, Decisions/Tails.png"; sourceTree = "<group>"; };
+		24D7907716604C2E00FEF575 /* Heads1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Heads1.png; path = "Decisions, Decisions/Heads1.png"; sourceTree = "<group>"; };
+		24D7907816604C2E00FEF575 /* Tails1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tails1.png; path = "Decisions, Decisions/Tails1.png"; sourceTree = "<group>"; };
 		24D7907C1660595500FEF575 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		24D7907D1660595500FEF575 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		24D7907F1660816900FEF575 /* List_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = List_icon.png; path = "Decisions, Decisions/List_icon.png"; sourceTree = "<group>"; };
 		24D790811660856000FEF575 /* Coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Coin.png; path = "Decisions, Decisions/Coin.png"; sourceTree = "<group>"; };
-		24E9923F1654B4900041CF9A /* lists.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lists.plist; sourceTree = "<group>"; };
+		24DF675416C81887004A394D /* Gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Gear.png; path = "Decisions, Decisions/Gear.png"; sourceTree = "<group>"; };
 		24F2C94F16B20825004A22CC /* felt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = felt.png; path = "Decisions, Decisions/felt.png"; sourceTree = "<group>"; };
-		24F6C664163DD28100FB19F1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
-		24F6C665163DD28100FB19F1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,19 +184,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2401F48516C958BF00E46BFE /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				24D7907816604C2E00FEF575 /* Tails1.png */,
+				2401F48C16C95AB600E46BFE /* Tails2.png */,
+				2401F48D16C95AB600E46BFE /* Tails3.png */,
+				2401F48E16C95AB600E46BFE /* Tails4.png */,
+				24D7907716604C2E00FEF575 /* Heads1.png */,
+				2401F48616C958D900E46BFE /* Heads2.png */,
+				2401F48716C958D900E46BFE /* Heads3.png */,
+				2401F48816C958D900E46BFE /* Heads4.png */,
+			);
+			name = Coin;
+			sourceTree = "<group>";
+		};
 		241E567816C4455500C7CB63 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				241E567916C4467A00C7CB63 /* ListModel.h */,
+				243E068116EF9DA200976346 /* DiceModel.h */,
+				243E068216EF9DA200976346 /* DiceModel.m */,
 				241E567C16C4467A00C7CB63 /* ListItem.h */,
 				241E567D16C4467A00C7CB63 /* ListItem.m */,
-				241E567A16C4467A00C7CB63 /* ListModel.m */,
 				245FECAC16BC38C800439CE9 /* Lists.xcdatamodeld */,
+				2422999D16CAA36600767009 /* ListModel.h */,
+				2422999E16CAA36600767009 /* ListModel.m */,
 				24831A6A16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld */,
-				24831A7016C5565A00A76A0D /* DiceModel.h */,
-				24831A7116C5565A00A76A0D /* DiceModel.m */,
-				24831A6D16C5565900A76A0D /* Die.h */,
-				24831A6E16C5565900A76A0D /* Die.m */,
+				2401F48216C94B1B00E46BFE /* Die.h */,
+				2401F48316C94B1B00E46BFE /* Die.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -216,8 +253,8 @@
 		24C6E9BC1639A31A00F36E88 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				24F6C664163DD28100FB19F1 /* SettingsViewController.h */,
-				24F6C665163DD28100FB19F1 /* SettingsViewController.m */,
+				24831A9F16C56D3C00A76A0D /* SettingsViewController.h */,
+				24831AA016C56D3C00A76A0D /* SettingsViewController.m */,
 				24C6E9C51639A31A00F36E88 /* AppDelegate.h */,
 				24C6E9C61639A31A00F36E88 /* AppDelegate.m */,
 				24C6E9CE1639A31A00F36E88 /* MainStoryboard_iPhone.storyboard */,
@@ -240,6 +277,8 @@
 		24C6E9BD1639A31A00F36E88 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				249D603916CD639C0092622E /* defaultDice.sqlite */,
+				249D603A16CD639C0092622E /* defaultList.sqlite */,
 				24C6E9BE1639A31A00F36E88 /* Decisions, Decisions-Info.plist */,
 				24C6E9BF1639A31A00F36E88 /* InfoPlist.strings */,
 				24C6E9C21639A31A00F36E88 /* main.m */,
@@ -247,8 +286,7 @@
 				24C6E9C81639A31A00F36E88 /* Default.png */,
 				24C6E9CA1639A31A00F36E88 /* Default@2x.png */,
 				24C6E9CC1639A31A00F36E88 /* Default-568h@2x.png */,
-				245058C3163B16180073955B /* diceSettings.plist */,
-				24E9923F1654B4900041CF9A /* lists.plist */,
+				245058C3163B16180073955B /* appDefaults.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -275,11 +313,13 @@
 		24C6EA0B1639BDAE00F36E88 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				249D603716CD61870092622E /* question_mark@2x.png */,
+				24DF675416C81887004A394D /* Gear.png */,
+				246FD50616C6A97200B54C49 /* question_mark.png */,
 				24F2C94F16B20825004A22CC /* felt.png */,
 				24D790811660856000FEF575 /* Coin.png */,
 				24D7907F1660816900FEF575 /* List_icon.png */,
-				24D7907716604C2E00FEF575 /* Heads.png */,
-				24D7907816604C2E00FEF575 /* Tails.png */,
+				2401F48516C958BF00E46BFE /* Coin */,
 				24CDD4AD16447ED2006F77BC /* Default Die.png */,
 				245058C5163B345E0073955B /* Die_sillouette.png */,
 				24C6EA181639C46900F36E88 /* 1.png */,
@@ -318,6 +358,7 @@
 				24C6E9AE1639A31A00F36E88 /* Sources */,
 				24C6E9AF1639A31A00F36E88 /* Frameworks */,
 				24C6E9B01639A31A00F36E88 /* Resources */,
+				24D95E6A16CB076E00DE3BBB /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -353,7 +394,7 @@
 		24C6E9A91639A31A00F36E88 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Nik Klassen";
 			};
 			buildConfigurationList = 24C6E9AC1639A31A00F36E88 /* Build configuration list for PBXProject "Decisions, Decisions" */;
@@ -379,6 +420,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249D603316CD4C120092622E /* Lists.xcdatamodeld in Resources */,
+				249D603416CD4C120092622E /* DiceConfigurations.xcdatamodeld in Resources */,
 				24C6E9C11639A31A00F36E88 /* InfoPlist.strings in Resources */,
 				24C6E9C91639A31A00F36E88 /* Default.png in Resources */,
 				24C6E9CB1639A31A00F36E88 /* Default@2x.png in Resources */,
@@ -394,15 +437,25 @@
 				24C6EA211639C46900F36E88 /* 4.png in Resources */,
 				24C6EA221639C46900F36E88 /* 5.png in Resources */,
 				24C6EA231639C46900F36E88 /* 6.png in Resources */,
-				245058C4163B16180073955B /* diceSettings.plist in Resources */,
+				245058C4163B16180073955B /* appDefaults.plist in Resources */,
 				245058C6163B345E0073955B /* Die_sillouette.png in Resources */,
 				24CDD4AE16447ED2006F77BC /* Default Die.png in Resources */,
-				24E992401654B4900041CF9A /* lists.plist in Resources */,
-				24D7907916604C2E00FEF575 /* Heads.png in Resources */,
-				24D7907A16604C2E00FEF575 /* Tails.png in Resources */,
+				24D7907916604C2E00FEF575 /* Heads1.png in Resources */,
+				24D7907A16604C2E00FEF575 /* Tails1.png in Resources */,
 				24D790801660816900FEF575 /* List_icon.png in Resources */,
 				24D790821660856000FEF575 /* Coin.png in Resources */,
 				24F2C95016B20825004A22CC /* felt.png in Resources */,
+				246FD50716C6A97200B54C49 /* question_mark.png in Resources */,
+				24DF675516C81887004A394D /* Gear.png in Resources */,
+				2401F48916C958D900E46BFE /* Heads2.png in Resources */,
+				2401F48A16C958D900E46BFE /* Heads3.png in Resources */,
+				2401F48B16C958D900E46BFE /* Heads4.png in Resources */,
+				2401F48F16C95AB600E46BFE /* Tails2.png in Resources */,
+				2401F49016C95AB600E46BFE /* Tails3.png in Resources */,
+				2401F49116C95AB600E46BFE /* Tails4.png in Resources */,
+				249D603816CD61870092622E /* question_mark@2x.png in Resources */,
+				249D603B16CD639C0092622E /* defaultDice.sqlite in Resources */,
+				249D603C16CD639C0092622E /* defaultList.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +483,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		24D95E6A16CB076E00DE3BBB /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements401/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -441,18 +508,18 @@
 				24C6E9C71639A31A00F36E88 /* AppDelegate.m in Sources */,
 				24C6E9D61639A31A00F36E88 /* DiceViewController.m in Sources */,
 				24C6E9DD1639A31A00F36E88 /* CoinViewController.m in Sources */,
-				24F6C666163DD28100FB19F1 /* SettingsViewController.m in Sources */,
 				24A0EC90163EF1C4008B0DD2 /* StepperCell.m in Sources */,
 				24BAB7551643401C002F7396 /* SwitchCell.m in Sources */,
 				24CDD49C16435C10006F77BC /* ConfigViewController.m in Sources */,
 				240F7E611646F7BE00F2CDCA /* ConfigDetailViewController.m in Sources */,
 				24D7907E1660595500FEF575 /* ListViewController.m in Sources */,
 				245FECAE16BC38C800439CE9 /* Lists.xcdatamodeld in Sources */,
-				241E567B16C4467A00C7CB63 /* ListModel.m in Sources */,
 				241E567E16C4467A00C7CB63 /* ListItem.m in Sources */,
 				24831A6C16C5554E00A76A0D /* DiceConfigurations.xcdatamodeld in Sources */,
-				24831A6F16C5565A00A76A0D /* Die.m in Sources */,
-				24831A7216C5565A00A76A0D /* DiceModel.m in Sources */,
+				24831AA116C56D3C00A76A0D /* SettingsViewController.m in Sources */,
+				2401F48416C94B1B00E46BFE /* Die.m in Sources */,
+				2422999F16CAA36600767009 /* ListModel.m in Sources */,
+				243E068316EF9DA200976346 /* DiceModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +578,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -528,6 +596,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -540,7 +609,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -557,10 +627,13 @@
 		24C6E9FA1639A31A00F36E88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Decisions, Decisions/Decisions, Decisions-Prefix.pch";
 				INFOPLIST_FILE = "Decisions, Decisions/Decisions, Decisions-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -568,10 +641,14 @@
 		24C6E9FB1639A31A00F36E88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Decisions, Decisions/Decisions, Decisions-Prefix.pch";
 				INFOPLIST_FILE = "Decisions, Decisions/Decisions, Decisions-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -580,6 +657,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Decisions, Decisions.app/Decisions, Decisions";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -597,6 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Decisions, Decisions.app/Decisions, Decisions";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",

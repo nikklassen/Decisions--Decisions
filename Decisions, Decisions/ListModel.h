@@ -2,7 +2,7 @@
 //  ListModel.h
 //  Decisions, Decisions
 //
-//  Created by Nik Klassen on 2013-02-07.
+//  Created by Nik Klassen on 2013-02-12.
 //  Copyright (c) 2013 Nik Klassen. All rights reserved.
 //
 
@@ -13,8 +13,10 @@
 
 @interface ListModel : NSManagedObject
 
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * numItems;
 @property (nonatomic, retain) NSSet *items;
+        
 @end
 
 @interface ListModel (CoreDataGeneratedAccessors)
@@ -23,5 +25,6 @@
 - (void)removeItemsObject:(ListItem *)value;
 - (void)addItems:(NSSet *)values;
 - (void)removeItems:(NSSet *)values;
+- (void)removeNumItemsAtIndexes:(NSIndexSet *)indexes;
 
 @end

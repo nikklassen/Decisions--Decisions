@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class SettingsViewController;
+//@class SettingsViewController;
 
 @interface ListViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource> {
 
-    NSManagedObjectContext *_managedObjectContext;
-    NSMutableArray *array;
+    NSManagedObjectContext *_moc;
+    NSMutableArray *listItems;
 }
 
 @property (nonatomic, strong) IBOutlet UIPickerView *picker;

@@ -3,13 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>lastList</key>
-	<string>Softies</string>
-	<key>Softies</key>
-	<array>
-		<string>Dan</string>
-		<string>Nik</string>
-		<string>Clarisse</string>
-		<string>Josh</string>
-	</array>
+	<string>softies</string>
+	<key>showTotal</key>
+	<true/>
+	<key>lastDice</key>
+	<string>custom</string>
 </dict>
 </plist>

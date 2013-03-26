@@ -9,6 +9,11 @@
 #import "ConfigDetailViewController.h"
 #import "ConfigViewController.h"
 #import "SettingsViewController.h"
+#import "DiceModel.h"
+#import "Die.h"
+#import "ListModel.h"
+#import "ListItem.h"
+#import "AppDelegate.h"
 
 @interface ConfigDetailViewController () {
     
@@ -33,8 +38,6 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = configToEdit;
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -46,15 +49,83 @@
     
     self.navigationItem.leftBarButtonItem = backButton;
     
-    if (!isNewConfig) {
+    items = [NSMutableArray new];
+    
+    _shouldLoadNewData = YES;
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+
+    self.navigationItem.title = configToEdit;
+    
+    [super viewWillAppear: animated];
+    if (!isNewConfig && _shouldLoadNewData) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSError *error;
+        
         if (configType == kDiceSection) {
-            items = [[NSMutableArray alloc] initWithArray: [[configs objectForKey: configToEdit] objectForKey: @"dice"]];
+            
+            _edittingContext = [appDelegate diceMOC];
+            
+            // Get all the side values from the current configuration
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"DiceModel"
+                                                      inManagedObjectContext: [appDelegate diceMOC]];
+            [fetchRequest setEntity:entity];
+            
+            NSArray *fetchedObjects = [_edittingContext executeFetchRequest:fetchRequest error:&error];
+            for (DiceModel *model in fetchedObjects) {
+                if ([[model.name capitalizedString] isEqualToString: configToEdit]) {
+                    _edittingModel = model;
+                    for (Die *die in model.dice) {
+                        [items addObject: die.sides];
+                    }
+                }
+            }
+            
         } else if (configType == kListSection) {
-            items = [[NSMutableArray alloc] initWithArray: [configs objectForKey: configToEdit]];
+            
+            _edittingContext = [appDelegate listMOC];
+            
+            // Get all the list values from the current configuration
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"ListModel"
+                                                      inManagedObjectContext: [appDelegate listMOC]];
+            [fetchRequest setEntity:entity];
+            
+            NSArray *fetchedObjects = [_edittingContext executeFetchRequest:fetchRequest error:&error];
+            for (ListModel *model in fetchedObjects) {
+                if ([[model.name capitalizedString] isEqualToString: configToEdit]) {
+                    _edittingModel = model;
+                    for (ListItem *item in model.items) {
+                        [items addObject: item.value];
+                    }
+                }
+            }
         }
-    } else {
-        items = [[NSMutableArray alloc] init];
+        [self.tableView reloadData];
+    } else if (isNewConfig) {
+        if (configType == kDiceSection) {
+            _edittingContext = [appDelegate diceMOC];
+            _edittingModel = [NSEntityDescription insertNewObjectForEntityForName: @"DiceModel" inManagedObjectContext: _edittingContext];
+            ((DiceModel *)_edittingModel).name = [configToEdit lowercaseString];
+        } else if (configType == kListSection) {
+            _edittingContext = [appDelegate listMOC];
+            _edittingModel = [NSEntityDescription insertNewObjectForEntityForName: @"ListModel" inManagedObjectContext: _edittingContext];
+            ((ListModel *)_edittingModel).name = [configToEdit lowercaseString];
+        }
     }
+    
+    _shouldLoadNewData = NO;
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    
+    if (self.tableView.isEditing) {
+        [self setEditing: NO animated: NO]; 
+    }
+    
+    [super viewWillDisappear: animated];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,11 +138,14 @@
 - (IBAction) add:(id)sender {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: (configType == kDiceSection) ? @"Add New Die" : @"Add New Item"
-                                                    message: (configType == kDiceSection) ? @"Enter the number of sides for this dice" : @"Enter new item name"
+                                                    message: (configType == kDiceSection) ? @"Enter the number of sides for this dice" : @"Enter new item"
                                                    delegate: self
                                           cancelButtonTitle: @"Cancel"
                                           otherButtonTitles: @"Add", nil];
     [alert setAlertViewStyle: UIAlertViewStylePlainTextInput];
+    [[alert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+    [[alert textFieldAtIndex:0] becomeFirstResponder];
+    alert.tag = 0;
     [alert show];
 }
 
@@ -81,46 +155,54 @@
         
         if (configType == kDiceSection) {
             
-            NSDictionary *dict = @{@"dice" : items,
-            @"numDice" : @(items.count)};
-            
-            [configs setObject: dict forKey: configToEdit];
-            
-            //[diceSettings setObject: configs forKey: @"configs"];
-            diceSettings[@"configs"] = configs;
-            
-            // Rewrite settings to plist
-            [diceSettings writeToFile: diceSettingsPath atomically: YES];
-            
-            settingsDidChange = YES;
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Configuration Saved" message: @"Your configuration has been saved successfully" delegate: nil cancelButtonTitle: @"Okay" otherButtonTitles: nil];
-            [alert show];
-            
-            if ([diceConfig isEqualToString: configToEdit]) {
-                currentConfig = [[diceSettings objectForKey: @"configs"] objectForKey: configToEdit];
+            DiceModel *model = (DiceModel *)_edittingModel;
+            model.name = [(DiceModel *)_edittingModel name];
+            if (!isNewConfig) {
+                [model removeDice: model.dice];
             }
+            model.numDice = @(0);
+            for (NSNumber *n in items) {
+                Die *d = [NSEntityDescription insertNewObjectForEntityForName: @"Die" inManagedObjectContext: _edittingContext];
+                d.sides = n;
+                [model addDiceObject: d];
+                model.numDice = @([model.numDice intValue]+1);
+            }
+            
+            NSError *error;
+            [_edittingContext save: &error];
+            
+            NSDictionary *d = @{@"config":configToEdit, @"dice":[NSArray arrayWithArray: items]};
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"addConfig" object: nil userInfo: d];
+            
             
         } else if (configType == kListSection) {
             
-            configs[configToEdit] = items;
-            
-            lists[configToEdit] = items;
-            
-            [lists writeToFile: listsPath atomically: YES];
-            
-            settingsDidChange = YES;
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Configuration Saved" message: @"Your configuration has been saved successfully" delegate: nil cancelButtonTitle: @"Okay" otherButtonTitles: nil];
-            [alert show];
-            
-            if ([listConfig isEqualToString: configToEdit]) {
-                currentList = lists[configToEdit];
+            ListModel *model = (ListModel *)_edittingModel;
+            model.name = [(DiceModel *)_edittingModel name];
+            if (!isNewConfig) {
+                [model removeItems: model.items];
             }
+            model.numItems = @(0);
+            for (NSString *s in items) {
+                ListItem *li = [NSEntityDescription insertNewObjectForEntityForName: @"ListItem" inManagedObjectContext: _edittingContext];
+                li.value = s;
+                [model addItemsObject: li];
+                model.numItems = @([model.numItems intValue]+1);
+            }
+            
+            NSError *error;
+            [_edittingContext save: &error];
             
         }
         
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Configuration Saved" message: @"Your configuration has been saved successfully" delegate: nil cancelButtonTitle: @"Okay" otherButtonTitles: nil];
+        [alert show];
+        
+    } else {
+        [_edittingContext rollback];
     }
+    
+    _shouldLoadNewData = YES;
     
     [self.navigationController popViewControllerAnimated: YES];
 }
@@ -164,15 +246,13 @@
     
     [super setEditing: editing animated: animated];
     
-    NSArray *addPath = @[[NSIndexPath indexPathForRow: 0 inSection:0]];
-    
     if (editing) {
         
-        [[self tableView] deleteRowsAtIndexPaths: addPath
+        [[self tableView] deleteRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 0 inSection:0]]
                                 withRowAnimation: UITableViewRowAnimationLeft];
     } else {
         
-        [[self tableView] insertRowsAtIndexPaths: addPath
+        [[self tableView] insertRowsAtIndexPaths: @[[NSIndexPath indexPathForRow: 0 inSection:0]]
                                 withRowAnimation: UITableViewRowAnimationLeft];
     }
 }
@@ -182,9 +262,10 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSLog(@"%@", indexPath);
         
         [items removeObjectAtIndex: indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -206,11 +287,7 @@
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
-    if (indexPath.row == 0) {
-        return NO;
-    } else {
-        return YES;
-    }
+    return NO;
 }
 
 #pragma mark - Table view delegate
@@ -223,11 +300,15 @@
 #pragma mark - Alert view delegate
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex == 1) {
-        if (configType == kDiceSection) {
-            [items addObject: @([[[alertView textFieldAtIndex: 0] text] intValue])];
-        } else {
-            [items addObject: [[alertView textFieldAtIndex: 0] text]];
+    // Add new item alert view
+    if (alertView.tag == 0) {
+        if (buttonIndex == 1) {
+            if (configType == kDiceSection) {
+                int sides = [[[alertView textFieldAtIndex: 0] text] intValue];
+                if (sides > 0) [items addObject: @(sides)];
+            } else if (configType == kListSection) {
+                [items addObject: [[alertView textFieldAtIndex: 0] text]];
+            }
         }
     }
 }
